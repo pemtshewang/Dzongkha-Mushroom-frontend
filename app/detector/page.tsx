@@ -26,7 +26,6 @@ export default function Page() {
     setImageUrl(URL.createObjectURL(file));
     const formData = new FormData();
     formData.append("image", file);
-    alert(formData.get("image"))
     setLoading(true);
     const res = await fetch("https://pemtshewang.pythonanywhere.com/detector/", {
       method: "POST",
@@ -38,10 +37,10 @@ export default function Page() {
     })
     const response = await res.json();
     setEnglishName(response.prediction.capitalize());
+    setLoading(false);
     getMushroomName();
   }
   async function getMushroomName() {
-    setLoading(false);
     setFetching(true);
     const res = await getData({ name: englishName });
     setFetching(false);
