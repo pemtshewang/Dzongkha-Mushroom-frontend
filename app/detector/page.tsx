@@ -21,7 +21,7 @@ export default function Page() {
   const [englishName, setEnglishName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = async (file) => {
+  const handleSubmit = async (file: File) => {
     setImageUrl(URL.createObjectURL(file));
     setLoading(true);
     try {
