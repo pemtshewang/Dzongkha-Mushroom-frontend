@@ -31,7 +31,6 @@ export default function Page() {
     const res = await fetch("https://pemtshewang.pythonanywhere.com/detector/", {
       method: "POST",
       headers: {
-        "Content-Type": "multipart/form-data",
         "Accept": "application/json"
       },
       body: formData,
