@@ -49,7 +49,7 @@ export const Mushroom: {
     "edible": "Edible",
     "description": "Lyophyllum aggregatum (བྱིས་ཤིང་རུ་རུ།) is an edible mushroom species characterized by its aggregating nature. It is found in Bhutan and is used in various culinary preparations."
   },
-  "shiitake": {
+  "shiitake ": {
     "name": "Shiitake",
     "dzongkhaName": "སོ་སྐྱེས་ཤ་མོང།",
     "scientificName": "Lentinula edodes",
