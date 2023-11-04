@@ -7,6 +7,7 @@ import MushroomList from "@/components/static"
 import { useState } from "react"
 import { getData } from "@/lib/util"
 import { motion } from "framer-motion"
+import { useEffect } from "react"
 
 
 export default function Page() {
@@ -27,16 +28,23 @@ export default function Page() {
     const formData = new FormData();
     formData.append("image", file);
     setLoading(true);
-    const res = await fetch("https://pemtshewang.pythonanywhere.com/detector/", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json"
-      },
-      body: formData,
-      cache: "no-store",
-    })
-    const name = await res.json();
-    setEnglishName(name.prediction.toLowerCase());
+    useEffect(() => {
+      fetch("https://pemtshewang.pythonanywhere.com/detector/", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: formData,
+        cache: "no-store",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setEnglishName(data.prediction.toLowerCase());
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
     setLoading(false);
     getMushroomName();
   }
