@@ -35,9 +35,8 @@ export default function Page() {
       body: formData,
       cache: "no-store",
     })
-    const response = await res.json();
-    alert(response.prediction.capitalize());
-    setEnglishName(response.prediction.capitalize());
+    const name = await res.json();
+    setEnglishName(name.prediction);
     setLoading(false);
     getMushroomName();
   }
