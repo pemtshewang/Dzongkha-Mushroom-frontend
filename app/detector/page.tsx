@@ -37,13 +37,10 @@ export default function Page() {
       cache: "no-store",
     })
     const response = await res.json();
-    setEnglishName(response.prediction.capitalize());
+    setEnglishName(response.prediction);
     getMushroomName();
   }
   async function getMushroomName() {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
     setFetching(true);
     const res = await getData({ name: englishName });
     setFetching(false);
