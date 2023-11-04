@@ -1,9 +1,15 @@
+function LoadingComponent() {
+      return (
+            <span className="loading loading-infinity loading-lg"></span>
+      )
+}
 export default function LoadingPage() {
       return (
-            <div className="fixed top-0 left-0 w-full h-1">
-                  <div className="progress w-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-loading"></div>
+            <div className="bg-opacity-50 bg-base-100">
+                  <div className="flex flex-col items-center justify-center h-screen">
+                        <LoadingComponent />
+                  </div>
             </div>
-
       )
 }
 

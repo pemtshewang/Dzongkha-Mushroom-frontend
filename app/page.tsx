@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function Home() {
+export default function HomePage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
