@@ -38,10 +38,10 @@ export default function Page() {
       .then((data) => {
         setEnglishName(data.prediction.toLowerCase());
         getMushroomName();
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false);
       });
   }
 
@@ -50,7 +50,6 @@ export default function Page() {
     const res = await getData({ name: englishName });
     setFetching(false);
     setDetail(res);
-    setLoading(false);
   }
 
   return (
@@ -98,40 +97,38 @@ export default function Page() {
                   className="flex flex-col items-center justify-center"
                 >
                   {
-                    detail?.name && (
-                      <div className="space-y-5">
-                        <img
-                          src={imageUrl}
-                          alt="uploaded image"
-                          className="w-[150px] h-[150px] border mx-auto rounded-full"
-                        />
-                        <h2 className="text-xl font-bold text-center">{detail?.name}</h2>
-                        <div className="flex space-x-2 items-center">
-                          <p className="w-[150px]">
-                            Dzongkha Name:
-                          </p>
-                          <p className="font-bold text-yellow-500 tracking-widest text-2xl">{detail?.dzongkhaName}</p>
-                        </div>
-                        <div className="flex space-x-2 items-center">
-                          <p className="w-[150px]">
-                            Scientific Name:
-                          </p>
-                          <p className="font-bold text-2xl">{detail?.scientificName}</p>
-                        </div>
-                        <div className="flex space-x-2 items-center">
-                          <p className="w-[150px]">
-                            Edible:
-                          </p>
-                          <p className="font-bold text-2xl">{detail?.edible}</p>
-                        </div>
-                        <div className="flex space-x-2">
-                          <p className="min-w-[150px]">
-                            Description:
-                          </p>
-                          <p className="font-bold">{detail?.description}</p>
-                        </div>
+                    <div className="space-y-5">
+                      <img
+                        src={imageUrl}
+                        alt="uploaded image"
+                        className="w-[150px] h-[150px] border mx-auto rounded-full"
+                      />
+                      <h2 className="text-xl font-bold text-center">{detail?.name}</h2>
+                      <div className="flex space-x-2 items-center">
+                        <p className="w-[150px]">
+                          Dzongkha Name:
+                        </p>
+                        <p className="font-bold text-yellow-500 tracking-widest text-2xl">{detail?.dzongkhaName}</p>
                       </div>
-                    )
+                      <div className="flex space-x-2 items-center">
+                        <p className="w-[150px]">
+                          Scientific Name:
+                        </p>
+                        <p className="font-bold text-2xl">{detail?.scientificName}</p>
+                      </div>
+                      <div className="flex space-x-2 items-center">
+                        <p className="w-[150px]">
+                          Edible:
+                        </p>
+                        <p className="font-bold text-2xl">{detail?.edible}</p>
+                      </div>
+                      <div className="flex space-x-2">
+                        <p className="min-w-[150px]">
+                          Description:
+                        </p>
+                        <p className="font-bold">{detail?.description}</p>
+                      </div>
+                    </div>
                   }
                 </motion.div>
               ) : (
