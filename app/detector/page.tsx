@@ -78,7 +78,7 @@ export default function Page() {
             ) : fetchData ? (
               <SkeletonLoadingPage />
             ) :
-              detail ? (
+              detail?.name ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{
