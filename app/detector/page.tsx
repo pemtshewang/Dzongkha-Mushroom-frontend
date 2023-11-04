@@ -1,3 +1,4 @@
+"use client"
 import ImageUploadPortal from "@/components/ImageUploadForm"
 import { Icons } from "@/components/Icons"
 import SkeletonLoadingPage from "@/components/Loading"
