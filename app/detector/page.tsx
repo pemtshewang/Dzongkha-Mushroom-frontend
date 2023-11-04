@@ -37,7 +37,7 @@ export default function Page() {
       cache: "no-store",
     })
     const name = await res.json();
-    alert(name);
+    alert(name.prediction);
     setEnglishName("Shiitake");
     getMushroomName();
   }
