@@ -44,8 +44,8 @@ export default function Page() {
   }
 
   function getMushroomName() {
-    setLoading(false);
     setFetching(true);
+    setLoading(false);
     getData({ name: englishName }).then((res) => {
       setDetail(res);
       setFetching(false);
@@ -75,7 +75,7 @@ export default function Page() {
             <NeuralLoading />
           ) : fetchData ? (
             <SkeletonLoadingPage />
-          ) : detail.name ? (
+          ) : detail?.name ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
