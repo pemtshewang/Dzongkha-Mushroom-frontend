@@ -17,17 +17,23 @@ export const Icons = {
       <svg viewBox="0 0 1024 1024" className="icon w-20 h-20 mx-auto" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M77.312 286.208h503.808v559.104H77.312z" fill="#5FFFBA"></path><path d="M133.632 342.016h391.68v335.36H133.632z" fill="#FFFFFF"></path><path d="M189.44 621.568h93.184L236.032 537.6zM375.808 453.632l-93.184 167.936h186.88z" fill="#FFD561"></path><path d="M637.44 621.568v83.456l337.408-165.376-211.456-432.64-252.928 122.88h110.08l120.32-58.368 127.488 259.584-230.912 113.152z" fill="#5FFFBA"></path></g></svg>
     )
   },
-  arrowdown: ({ className }) => {
+  arrowdown: ({ className }: {
+    className: string
+  }) => {
     return (
       <svg className={className} fill="#fff" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_88_"> <path id="XMLID_89_" d="M304.394,139.394l-139.39,139.393L25.607,139.393c-5.857-5.857-15.355-5.858-21.213,0.001 c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393s7.794-1.581,10.606-4.394l149.996-150 c5.858-5.858,5.858-15.355,0-21.213C319.749,133.536,310.251,133.535,304.394,139.394z"></path> <path id="XMLID_90_" d="M154.398,190.607c2.813,2.813,6.628,4.393,10.606,4.393s7.794-1.581,10.606-4.394l149.996-150 c5.858-5.858,5.858-15.355,0-21.213c-5.857-5.858-15.355-5.858-21.213,0l-139.39,139.393L25.607,19.393 c-5.857-5.858-15.355-5.858-21.213,0c-5.858,5.858-5.858,15.355,0,21.213L154.398,190.607z"></path> </g> </g></svg>
     )
   },
-  question: ({ className }) => {
+  question: ({ className }: {
+    className: string
+  }) => {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 19H12.01M8.21704 7.69689C8.75753 6.12753 10.2471 5 12 5C14.2091 5 16 6.79086 16 9C16 10.6565 14.9931 12.0778 13.558 12.6852C12.8172 12.9988 12.4468 13.1556 12.3172 13.2767C12.1629 13.4209 12.1336 13.4651 12.061 13.6634C12 13.8299 12 14.0866 12 14.6L12 16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
     )
   },
-  skeleton: ({ className }) => {
+  skeleton: ({ className }: {
+    className: string
+  }) => {
     return (
       <svg
         role="img"
@@ -106,7 +112,9 @@ export const Icons = {
       </svg>
     )
   },
-  neuralLoading: ({ className }) => {
+  neuralLoading: ({ className }: {
+    className: string
+  }) => {
     return (
       <svg className={className} width="400" height="300" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="20" fill="#3498db" />

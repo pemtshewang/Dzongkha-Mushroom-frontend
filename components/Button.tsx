@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
-export default function RedirectButton({ buttonProps }) {
+export default function RedirectButton({ buttonProps }: {
+  buttonProps: () => void
+}) {
   return (
     <motion.div
       className="mt-2 py-7 w-fit ml-auto"

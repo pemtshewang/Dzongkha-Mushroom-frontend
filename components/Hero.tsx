@@ -2,7 +2,9 @@ import HeroLogo from "../public/hero.png"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import RedirectButton from "./Button"
-export default function Hero({ buttonProps }) {
+export default function Hero({ buttonProps }: {
+  buttonProps: () => void
+}) {
   return (
     <section
       className="hero flex"

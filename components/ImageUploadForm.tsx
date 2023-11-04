@@ -5,17 +5,25 @@ import { useAnimationControls } from 'framer-motion';
 import { Icons } from './Icons';
 import Image from 'next/image';
 
-const ImageUploadPortal = ({ buttonProps }) => {
+const ImageUploadPortal = ({ buttonProps }: {
+  buttonProps: (file: File) => void
+}) => {
   const [files, setFiles] = useState([]);
   const animationControls = useAnimationControls();
   const controls = useAnimation();
 
-  const handleFileChange = (event) => {
-    setFiles(event.target.files);
+  const handleFileChange = (event: {
+    target: {
+      files: any;
+    };
+  }) => {
+    setFiles(event?.target?.files);
   };
 
   // Image Detail Component
-  const DetailImage = ({ img }) => {
+  const DetailImage = ({ img }: {
+    img: File
+  }) => {
     return (
       <motion.div
         animate={controls}
