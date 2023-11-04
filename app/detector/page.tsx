@@ -23,15 +23,13 @@ export default function Page() {
 
   const handleSubmit = async (file: File) => {
     // if the detail is not empty, reset it
-    if (detail.name) {
-      setDetail({
-        name: "",
-        dzongkhaName: "",
-        scientificName: "",
-        edible: "",
-        description: "",
-      });
-    }
+    setDetail({
+      name: "",
+      dzongkhaName: "",
+      scientificName: "",
+      edible: "",
+      description: "",
+    });
     setImageUrl(URL.createObjectURL(file));
     setLoading(true);
     try {
