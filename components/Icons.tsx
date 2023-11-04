@@ -37,10 +37,10 @@ export const Icons = {
     return (
       <svg
         role="img"
-        width="800"
+        width="500"
         height="400"
         aria-labelledby="loading-aria"
-        viewBox="0 0 800 400"
+        viewBox="0 0 500 400"
         preserveAspectRatio="none"
       >
         <title id="loading-aria">Loading...</title>

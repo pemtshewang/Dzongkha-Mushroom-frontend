@@ -21,7 +21,7 @@ export default function Page() {
   const [englishName, setEnglishName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = async (file: File) => {
+  const handleSubmit = async (file) => {
     setImageUrl(URL.createObjectURL(file));
     setLoading(true);
     try {
@@ -37,20 +37,35 @@ export default function Page() {
       });
       const data = await response.json();
       setEnglishName(data.prediction.toLowerCase());
+      // Move the getMushroomName call here
       getMushroomName();
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   }
 
-  function getMushroomName() {
+  const getMushroomName = () => {
     setFetching(true);
-    setLoading(false);
-    getData({ name: englishName }).then((res) => {
-      setDetail(res);
-      setFetching(false);
-    });
+    getData({ name: englishName })
+      .then((res) => {
+        setDetail(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setFetching(false);
+        setLoading(false); // Set loading to false here
+      });
   }
+
+  useEffect(() => {
+    // Check if English name exists, then fetch mushroom name
+    if (englishName) {
+      getMushroomName();
+    }
+  }, [englishName]);
 
   return (
     <div className="grid grid-cols-2">
@@ -75,7 +90,7 @@ export default function Page() {
             <NeuralLoading />
           ) : fetchData ? (
             <SkeletonLoadingPage />
-          ) : detail?.name ? (
+          ) : detail.name ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
