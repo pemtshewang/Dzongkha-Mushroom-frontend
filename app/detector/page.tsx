@@ -88,9 +88,9 @@ export default function Page() {
         <div className="p-5">
           {loading ? (
             <NeuralLoading />
-          ) : fetchData ? (
+          ) : (fetchData && !detail?.name) ? (
             <SkeletonLoadingPage />
-          ) : detail.name ? (
+          ) : detail?.name ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
