@@ -28,7 +28,7 @@ export const Mushroom: {
     "edible": "Edible",
     "description": "Lactarius delicious (གླང་ཤ།) is a delectable mushroom with a mouthwatering taste. It's commonly found in Bhutan and adds a delightful flavor to dishes."
   },
-  "gomphus Floccossus": {
+  "gomphus floccossus": {
     "name": "Gomphus floccosus",
     "dzongkhaName": "ཏིང་ཤ་མོང།",
     "scientificName": "Gomphus floccosus",
