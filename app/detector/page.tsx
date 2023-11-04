@@ -1,14 +1,11 @@
-"use client"
 import ImageUploadPortal from "@/components/ImageUploadForm"
 import { Icons } from "@/components/Icons"
 import SkeletonLoadingPage from "@/components/Loading"
 import NeuralLoading from "@/components/NeuralLoading"
 import MushroomList from "@/components/static"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { getData } from "@/lib/util"
 import { motion } from "framer-motion"
-import { useEffect } from "react"
-
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -28,32 +25,34 @@ export default function Page() {
     const formData = new FormData();
     formData.append("image", file);
     setLoading(true);
-    useEffect(() => {
-      fetch("https://pemtshewang.pythonanywhere.com/detector/", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json"
-        },
-        body: formData,
-        cache: "no-store",
+
+    fetch("https://pemtshewang.pythonanywhere.com/detector/", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json"
+      },
+      body: formData,
+      cache: "no-store",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setEnglishName(data.prediction.toLowerCase());
+        getMushroomName();
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setEnglishName(data.prediction.toLowerCase());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
-    setLoading(false);
-    getMushroomName();
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }
+
   async function getMushroomName() {
     setFetching(true);
     const res = await getData({ name: englishName });
     setFetching(false);
     setDetail(res);
+    setLoading(false);
   }
+
   return (
     <div className="grid grid-cols-2">
       <div className="px-5">
@@ -66,14 +65,12 @@ export default function Page() {
         <ImageUploadPortal buttonProps={handleSubmit} />
       </div>
       <div>
-        {/* header starts */}
         <div className="header flex">
           <h1 className="text-2xl font-bold">Prediction</h1>
           <div className="tooltip" data-tip="Predicted Image">
             <p><Icons.question className={"w-9 h-9"} /></p>
           </div>
         </div>
-        {/* header ends */}
         <div className="p-5">
           {
             loading ? (
@@ -133,7 +130,8 @@ export default function Page() {
                           </p>
                           <p className="font-bold">{detail?.description}</p>
                         </div>
-                      </div>)
+                      </div>
+                    )
                   }
                 </motion.div>
               ) : (
@@ -142,6 +140,6 @@ export default function Page() {
           }
         </div>
       </div>
-    </div >
+    </div>
   )
 }
