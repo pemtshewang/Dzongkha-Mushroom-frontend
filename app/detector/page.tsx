@@ -46,6 +46,7 @@ export default function Page() {
   }
 
   const getMushroomName = () => {
+    setLoading(false); // Set loading to false here
     setFetching(true);
     getData({ name: englishName })
       .then((res) => {
@@ -56,7 +57,6 @@ export default function Page() {
       })
       .finally(() => {
         setFetching(false);
-        setLoading(false); // Set loading to false here
       });
   }
 
