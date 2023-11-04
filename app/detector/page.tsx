@@ -36,7 +36,8 @@ export default function Page() {
       cache: "no-store",
     })
     const name = await res.json();
-    setEnglishName(name.prediction);
+    const stdName = name.charAt(0).toUpperCase() + name.slice(1);
+    setEnglishName(stdName);
     setLoading(false);
     getMushroomName();
   }
