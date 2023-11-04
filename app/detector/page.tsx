@@ -31,6 +31,7 @@ export default function Page() {
       method: "POST",
       headers: {
         "Content-Type": "multipart/form-data",
+        "Accept": "application/json"
       },
       body: formData,
       cache: "no-store",
