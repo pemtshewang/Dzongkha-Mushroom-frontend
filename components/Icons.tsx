@@ -37,7 +37,7 @@ export const Icons = {
     return (
       <svg
         role="img"
-        width="1000"
+        width="500"
         height="400"
         aria-labelledby="loading-aria"
         viewBox="0 0 1000 400"

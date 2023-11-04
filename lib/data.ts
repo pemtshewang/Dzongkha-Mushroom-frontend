@@ -14,21 +14,21 @@ export const Mushroom: {
     "edible": "Edible",
     "description": "The Bitter bolete (སེར་བམ།) is an edible mushroom with a slightly bitter taste. It can be found in Bhutan's forests and is known for its unique flavor."
   },
-  "hygrophorus russula": {
+  "russulla": {
     "name": "Hygrophorus russula",
     "dzongkhaName": "ཨེ་ཏོག་ཤ་མོང།",
     "scientificName": "Hygrophorus russula",
     "edible": "Edible",
     "description": "Hygrophorus russula (ཨེ་ཏོག་ཤ་མོང།) is a delectable mushroom species found in Bhutan. It boasts a distinctive taste and can be used in various culinary dishes."
   },
-  "lactarius delicious": {
+  "lactarius_deliciosus": {
     "name": "Lactarius delicious",
     "dzongkhaName": "གླང་ཤ།",
     "scientificName": "Lactarius deliciosus",
     "edible": "Edible",
     "description": "Lactarius delicious (གླང་ཤ།) is a delectable mushroom with a mouthwatering taste. It's commonly found in Bhutan and adds a delightful flavor to dishes."
   },
-  "gomphus floccosus": {
+  "gomphus Floccossus": {
     "name": "Gomphus floccosus",
     "dzongkhaName": "ཏིང་ཤ་མོང།",
     "scientificName": "Gomphus floccosus",

@@ -25,7 +25,6 @@ export default function Page() {
     const formData = new FormData();
     formData.append("image", file);
     setLoading(true);
-
     fetch("https://pemtshewang.pythonanywhere.com/detector/", {
       method: "POST",
       headers: {
@@ -45,11 +44,12 @@ export default function Page() {
       });
   }
 
-  async function getMushroomName() {
+  function getMushroomName() {
     setFetching(true);
-    const res = await getData({ name: englishName });
+    getData({ name: englishName }).then((res) => {
+      setDetail(res);
+    });
     setFetching(false);
-    setDetail(res);
   }
 
   return (
@@ -77,7 +77,7 @@ export default function Page() {
             ) : fetchData ? (
               <SkeletonLoadingPage />
             ) :
-              detail?.name ? (
+              detail ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{

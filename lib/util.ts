@@ -15,7 +15,7 @@ export function getData({ name }: {
     setTimeout(() => {
       // if the name is not in the Mushroom object
       // otherwise, resolve with the mushroom data
-      resolve(Mushroom[name]);
+      resolve(Mushroom[name.toLowerCase()]);
     }, 6000);
   });
 }
