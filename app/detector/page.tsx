@@ -12,11 +12,17 @@ import { motion } from "framer-motion"
 export default function Page() {
   const [loading, setLoading] = useState(false);
   const [fetchData, setFetching] = useState(false);
-  const [detail, setDetail] = useState({});
+  const [detail, setDetail] = useState<{
+    name: string,
+    dzongkhaName: string,
+    scientificName: string,
+    edible: string,
+    description: string,
+  }>();
   const [englishName, setEnglishName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = async (file) => {
+  const handleSubmit = async (file: File) => {
     setImageUrl(URL.createObjectURL(file));
     const formData = new FormData();
     formData.append("image", file);

@@ -1,4 +1,6 @@
-export default function DetectorPage({ children }) {
+export default function DetectorPage({ children }: {
+  children: React.ReactNode
+}) {
   return (
     <div>
       {children}
