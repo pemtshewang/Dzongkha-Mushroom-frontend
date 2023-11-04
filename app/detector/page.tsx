@@ -26,6 +26,7 @@ export default function Page() {
     setImageUrl(URL.createObjectURL(file));
     const formData = new FormData();
     formData.append("image", file);
+    alert(formData.get("image"))
     setLoading(true);
     const res = await fetch("https://pemtshewang.pythonanywhere.com/detector/", {
       method: "POST",
