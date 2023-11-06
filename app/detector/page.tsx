@@ -84,7 +84,7 @@ export default function Page() {
             <p><Icons.question className="w-9 h-9" /></p>
           </div>
         </div>
-        <ImageUploadPortal buttonProps={handleSubmit} />
+        <ImageUploadPortal buttonProps={handleSubmit} loadingProps={loading} />
       </div>
       <div>
         <div className="header flex">

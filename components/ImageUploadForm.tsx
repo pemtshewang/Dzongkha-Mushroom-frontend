@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { useAnimation } from 'framer-motion';
 import { useAnimationControls } from 'framer-motion';
 import { Icons } from './Icons';
-import Image from 'next/image';
 
-const ImageUploadPortal = ({ buttonProps }: {
-  buttonProps: (file: File) => void
+const ImageUploadPortal = ({ buttonProps, loadingProps }: {
+  buttonProps: (file: File) => void,
+  loadingProps: boolean
 }) => {
   const [files, setFiles] = useState([]);
   const animationControls = useAnimationControls();
@@ -61,11 +61,24 @@ const ImageUploadPortal = ({ buttonProps }: {
               <div className='flex'>
                 <h2 className='text-xl text-bold'>The image has been uploaded</h2>
               </div>
-              <img
-                src={URL.createObjectURL(files[0])}
-                alt="uploaded image"
-                className="w-1/2 h-1/2 border mx-auto"
-              />
+              {
+                loadingProps ? (
+                  <div className="relative w-1/2 h-1/2 mx-auto border overflow-hidden">
+                    <img
+                      src={URL.createObjectURL(files[0])}
+                      alt="uploaded image"
+                      className="object-cover w-full h-full"
+                    />
+                    <div className={`absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-green-400 to-transparent animate-scanning-line ${loadingProps ? 'animate-paused' : ''}`}></div>
+                  </div>
+                ) : (
+                  <img
+                    src={URL.createObjectURL(files[0])}
+                    alt="uploaded image"
+                    className="w-1/2 h-1/2 border mx-auto"
+                  />
+                )
+              }
             </div>
           )
         }
