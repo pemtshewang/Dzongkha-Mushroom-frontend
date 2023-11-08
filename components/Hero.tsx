@@ -5,7 +5,12 @@ import RedirectButton from "./Button"
 export default async function Hero({ buttonProps }: {
   buttonProps: () => void
 }) {
-  const quote = await fetch("https://zenquotes.io/api/quotes");
+  // set no-cors to true to avoid CORS error
+  const quote = await fetch("https://zenquotes.io/api/quotes", {
+    mode: "no-cors",
+    cache: "no-store",
+  });
+
   const q = await quote.json();
   const quoteText = q[0].q;
   const quoteAuthor = q[0].a;
@@ -47,10 +52,10 @@ export default async function Hero({ buttonProps }: {
           <p className="text-2xl">Net</p>
         </div>
         <RedirectButton buttonProps={buttonProps} />
-      </div>
-      <div className="p-2 space-y-2">
-        <p className="text-2xl">&ldquo;{quoteText}&ldquo;</p>
-        <p className="ml-auto italic">-{quoteAuthor}</p>
+        <div className="p-2 space-y-2">
+          <p className="text-2xl">&ldquo;{quoteText}&ldquo;</p>
+          <p className="ml-auto italic">-{quoteAuthor}</p>
+        </div>
       </div>
     </section >
   )
