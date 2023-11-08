@@ -45,7 +45,7 @@ export default function Hero({ buttonProps }: {
           <p className="text-2xl">Net</p>
         </div>
         <RedirectButton buttonProps={buttonProps} />
-        <div className="p-2 space-y-2 max-w-400">
+        <div className="p-2 space-y-2 max-w-200">
           <p className="text-2xl">&ldquo;&nbsp;{quote}&nbsp;&ldquo;</p>
           <div className="flex justify-end">
             <p className="ml-auto italic justify-end">-{quoteAuthor}</p>
