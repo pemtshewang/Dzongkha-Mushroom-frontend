@@ -6,14 +6,6 @@ export default async function Hero({ buttonProps }: {
   buttonProps: () => void
 }) {
   // set no-cors to true to avoid CORS error
-  const quote = await fetch("https://zenquotes.io/api/quotes", {
-    mode: "no-cors",
-    cache: "no-store",
-  });
-
-  const q = await quote.json();
-  const quoteText = q[0].q;
-  const quoteAuthor = q[0].a;
   return (
     <section
       className="hero flex"
