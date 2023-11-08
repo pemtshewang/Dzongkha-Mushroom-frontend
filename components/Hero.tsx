@@ -2,10 +2,11 @@ import HeroLogo from "../public/hero.png"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import RedirectButton from "./Button"
-export default async function Hero({ buttonProps }: {
+import { getQuotes } from "@/lib/randomQuotes"
+export default function Hero({ buttonProps }: {
   buttonProps: () => void
 }) {
-  // set no-cors to true to avoid CORS error
+  const { quote, quoteAuthor } = getQuotes();
   return (
     <section
       className="hero flex"
@@ -45,8 +46,10 @@ export default async function Hero({ buttonProps }: {
         </div>
         <RedirectButton buttonProps={buttonProps} />
         <div className="p-2 space-y-2">
-          <p className="text-2xl">&ldquo;{quoteText}&ldquo;</p>
-          <p className="ml-auto italic">-{quoteAuthor}</p>
+          <p className="text-2xl">&ldquo;&nbsp;{quote}&nbsp;&ldquo;</p>
+          <div className="flex justify-end">
+            <p className="ml-auto italic justify-end">-{quoteAuthor}</p>
+          </div>
         </div>
       </div>
     </section >
