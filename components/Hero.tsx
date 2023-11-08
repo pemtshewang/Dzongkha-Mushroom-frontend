@@ -2,9 +2,13 @@ import HeroLogo from "../public/hero.png"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import RedirectButton from "./Button"
-export default function Hero({ buttonProps }: {
+export default async function Hero({ buttonProps }: {
   buttonProps: () => void
 }) {
+  const quote = await fetch("https://zenquotes.io/api/quotes");
+  const q = await quote.json();
+  const quoteText = q[0].q;
+  const quoteAuthor = q[0].a;
   return (
     <section
       className="hero flex"
@@ -43,6 +47,10 @@ export default function Hero({ buttonProps }: {
           <p className="text-2xl">Net</p>
         </div>
         <RedirectButton buttonProps={buttonProps} />
+      </div>
+      <div className="p-2 space-y-2">
+        <p className="text-2xl">&ldquo;{quoteText}&ldquo;</p>
+        <p className="ml-auto italic">-{quoteAuthor}</p>
       </div>
     </section >
   )
